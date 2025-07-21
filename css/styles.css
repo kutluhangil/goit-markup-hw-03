@@ -1,0 +1,198 @@
+/* Tüm renkler style guide kısmından root olarak yazılmıştır */
+:root {
+  --color-primary: #4D5AE5; /* Ana mavi - butonlar, hoverlar */
+  --color-primary-pressed: #404BBF; /* Hover durumları */
+  --color-dark: #2E2F42; /* Arka plan için koyu renk */
+  --color-text: #434455; /* Gövde metin rengi */
+  --color-muted: #8E8F99; /* Yardımcı açıklama metni */
+  --color-accent: #E7E9FC; /* Hafif vurgular */
+  --color-light-bg: #F4F4FD; /* Açık arka planlar */
+  --color-white: #FFFFFF;
+  --color-modal: #FCFCFC;
+  --color-success: #31D0AA; /* Başarı mesajı */
+}
+
+/* Ana gövde stili */
+body {
+  color: var(--color-text);
+  background-color: var(--color-white);
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+
+/* Başlık stilleri */
+h1 {
+  color: var(--color-dark);
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.07;
+  letter-spacing: 0.02em;
+}
+
+h2 {
+  color: var(--color-dark);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+h3 {
+  color: var(--color-dark);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+/* Hover ve focus durumlarında başlık renk değişimi */
+h1:hover,
+h2:hover,
+h3:hover,
+h1:focus,
+h2:focus,
+h3:focus {
+  color: var(--color-primary-pressed);
+  cursor: default;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.small-text {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+}
+
+.medium-text {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+
+/* Buton stili */
+.order-btn {
+  width: 169px;
+  height: 56px;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.order-btn:hover,
+.order-btn:focus {
+  background-color: var(--color-primary-pressed);
+}
+
+/* Logo stili */
+.logo {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.17;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--color-primary)
+}
+
+/* Navigation bağlantıları */
+nav a {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--color-dark);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+nav a:hover,
+nav a:focus {
+  color: var(--color-primary-pressed);
+}
+
+/* İletişim bağlantıları */
+address a {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+address a:hover,
+address a:focus {
+  color: var(--color-primary-pressed);
+}
+
+/* Hero bölümü (Effective Solutions) */
+.hero-section {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 15px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px; /* Başlık ile buton arası boşluk */
+}
+
+/* Footer stili */
+.footer {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  text-align: left;
+  padding: 100px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.footer .logo {
+  color: var(--color-primary);
+}
+
+.footer p {
+  max-width: 264px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Yardımcı metin renkleri */
+.helper-text {
+  color: var(--color-muted);
+}
+
+.success-message {
+  color: var(--color-success);
+}
