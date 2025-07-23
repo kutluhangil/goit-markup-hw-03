@@ -37,7 +37,6 @@ img {
   height: auto; /* Oranlarını korumak için */
 }
 
-
 /* Ana gövde stili */
 body {
   color: var(--color-text);
@@ -76,20 +75,8 @@ h3 {
   letter-spacing: 0.02em;
 }
 
-/* Başlıkların hover/focus durumu kaldırıldı (Figma'da bu yok) */
-/* h1:hover,
-h2:hover,
-h3:hover,
-h1:focus,
-h2:focus,
-h3:focus {
-  color: var(--color-primary-pressed);
-  cursor: default;
-} */
-
 /* Buton stili */
 .order-btn {
-  /* width ve height yerine padding tercih edildi (B12'ye uyum) */
   padding: 16px 32px;
   border: none;
   border-radius: 4px;
@@ -101,8 +88,7 @@ h3:focus {
   letter-spacing: 0.04em;
   cursor: pointer;
   transition: background-color 0.3s;
-  min-width: 169px;
-  /* Figma'daki genişliği korumak için */
+  min-width: 169px; 
   display: block; /* Genişliği padding ile ayarlanırken ortalamak için block olmalı */
   margin: 0 auto; /* Eğer text-align center vermezsek */
 }
@@ -120,13 +106,13 @@ h3:focus {
   line-height: 1.17;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: var(--color-dark); /* Logo varsayılan rengi Figma'ya göre koyu olmalı */
+  color: var(--color-dark);
   text-decoration: none;
-  margin-right: 76px; /* Navigasyon ile logo arası boşluk */
+  margin-right: 76px; 
 }
 
 .logo span {
-  color: var(--color-primary); /* Sadece "WEB" kısmı mavi olacak */
+  color: var(--color-primary); /* Sadece "WEB" kısmı mavi */
 }
 
 /* Navigation bağlantıları */
@@ -143,7 +129,7 @@ h3:focus {
   color: var(--color-dark);
   text-decoration: none;
   transition: color 0.3s;
-  padding: 24px 0; /* Header'daki linklerin yüksekliğini doldurmak için */
+  padding: 24px 0; 
 }
 
 .nav-link:hover,
@@ -201,9 +187,8 @@ h3:focus {
 }
 
 .hero-content h1 {
-  color: var(--color-white); /* Başlık rengi beyaz olmalı */
+  color: var(--color-white); 
 }
-
 
 /* Footer stili */
 .footer {
@@ -221,14 +206,13 @@ h3:focus {
 
 .footer .logo {
   color: var(--color-primary); /* Sadece "WEB" kısmı mavi olacak */
-  margin-right: 0; /* Footer logosunun sağ boşluğunu kaldır */
+  margin-right: 0; /* Footer'da sağa yaslanmayacak */
   margin-bottom: 16px; /* Logo ile paragraf arası boşluk */
 }
 
 .footer .logo span {
   color: var(--color-light-bg); /* Footer'daki Studio kısmı açık renk */
 }
-
 
 .footer-text {
   max-width: 264px;
@@ -264,8 +248,7 @@ h3:focus {
   padding: 0; /* Header içinde .header-container zaten padding'e sahip */
 }
 
-.header-container {
-  /* B10: Header içeriğini düzenlemek için Flexbox */
+.header-container { /* B10: Header içeriğini düzenlemek için Flexbox */
   display: flex;
   align-items: center;
   justify-content: space-between;
