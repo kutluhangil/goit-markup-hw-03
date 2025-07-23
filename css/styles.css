@@ -12,6 +12,32 @@
   --color-success: #31D0AA; /* Başarı mesajı */
 }
 
+/* Global reset: Başlıklar, paragraflar ve listeler için (B1) */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  /* Varsayılan liste stilleri kaldırıldı */
+}
+
+img {
+  display: block; /* Resimlerin altındaki boşluğu kaldırmak için */
+  max-width: 100%; /* Resimlerin kapsayıcısını aşmasını önlemek için */
+  height: auto; /* Oranlarını korumak için */
+}
+
+
 /* Ana gövde stili */
 body {
   color: var(--color-text);
@@ -35,8 +61,11 @@ h2 {
   color: var(--color-dark);
   font-size: 36px;
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.11; /* Figma'da 36px/36px 1.11'e yakın */
   letter-spacing: 0.02em;
+  text-align: center; /* Figma görseline göre ortalanmış */
+  text-transform: capitalize; /* "Our Team", "Our Portfolio" gibi başlıklar için */
+  margin-bottom: 72px; /* Figma'ya göre başlık altı boşluk */
 }
 
 h3 {
@@ -47,8 +76,8 @@ h3 {
   letter-spacing: 0.02em;
 }
 
-/* Hover ve focus durumlarında başlık renk değişimi */
-h1:hover,
+/* Başlıkların hover/focus durumu kaldırıldı (Figma'da bu yok) */
+/* h1:hover,
 h2:hover,
 h3:hover,
 h1:focus,
@@ -56,30 +85,11 @@ h2:focus,
 h3:focus {
   color: var(--color-primary-pressed);
   cursor: default;
-}
-
-p {
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-.small-text {
-  font-size: 12px;
-  line-height: 1.17;
-  letter-spacing: 0.04em;
-}
-
-.medium-text {
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-}
+} */
 
 /* Buton stili */
 .order-btn {
-  width: 169px;
-  height: 56px;
+  /* width ve height yerine padding tercih edildi (B12'ye uyum) */
   padding: 16px 32px;
   border: none;
   border-radius: 4px;
@@ -91,6 +101,10 @@ p {
   letter-spacing: 0.04em;
   cursor: pointer;
   transition: background-color 0.3s;
+  min-width: 169px;
+  /* Figma'daki genişliği korumak için */
+  display: block; /* Genişliği padding ile ayarlanırken ortalamak için block olmalı */
+  margin: 0 auto; /* Eğer text-align center vermezsek */
 }
 
 .order-btn:hover,
@@ -106,32 +120,49 @@ p {
   line-height: 1.17;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: var(--color-primary);
+  color: var(--color-dark); /* Logo varsayılan rengi Figma'ya göre koyu olmalı */
   text-decoration: none;
+  margin-right: 76px; /* Navigasyon ile logo arası boşluk */
 }
 
 .logo span {
-  color: var(--color-primary)
+  color: var(--color-primary); /* Sadece "WEB" kısmı mavi olacak */
 }
 
 /* Navigation bağlantıları */
-nav a {
+.nav-list {
+  display: flex; /* B10: Yatay hizalama */
+  gap: 40px;
+}
+
+.nav-link {
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 500; 
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--color-dark);
   text-decoration: none;
   transition: color 0.3s;
+  padding: 24px 0; /* Header'daki linklerin yüksekliğini doldurmak için */
 }
 
-nav a:hover,
-nav a:focus {
+.nav-link:hover,
+.nav-link:focus {
   color: var(--color-primary-pressed);
 }
 
 /* İletişim bağlantıları */
-address a {
+.contact-address {
+  font-style: normal;
+}
+
+.contact-list {
+  display: flex;
+  gap: 40px;
+}
+
+.email-link,
+.phone-link {
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
@@ -139,23 +170,25 @@ address a {
   color: var(--color-text);
   text-decoration: none;
   transition: color 0.3s;
+  padding: 24px 0;
 }
 
-address a:hover,
-address a:focus {
+.email-link:hover,
+.email-link:focus,
+.phone-link:hover,
+.phone-link:focus {
   color: var(--color-primary-pressed);
 }
 
 /* Hero bölümü (Effective Solutions) */
 .hero-section {
   background-color: var(--color-dark);
-  color: var(--color-white);
-  height: 600px;
-  display: flex;
+  color: var(--color-white); /* height: 600px; B12: Sabit yükseklik yerine padding kullanıldı */
+  padding: 188px 0; /* Figma'daki görsele göre boşluklar */
+  display: flex; /* İçeriği ortalamak için Flexbox */
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 0 15px;
 }
 
 .hero-content {
@@ -163,36 +196,163 @@ address a:focus {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 24px; /* Başlık ile buton arası boşluk */
+  gap: 48px; /* Başlık ile buton arası boşluk Figma'ya göre */
+  max-width: 496px; /* Figma'daki başlığın max genişliği */
 }
+
+.hero-content h1 {
+  color: var(--color-white); /* Başlık rengi beyaz olmalı */
+}
+
 
 /* Footer stili */
 .footer {
   background-color: var(--color-dark);
   color: var(--color-white);
-  text-align: left;
   padding: 100px 0;
+}
+
+.footer-container {
+  /* B9: Footer içeriği için Flexbox konteyneri */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
 }
 
 .footer .logo {
-  color: var(--color-primary);
+  color: var(--color-primary); /* Sadece "WEB" kısmı mavi olacak */
+  margin-right: 0; /* Footer logosunun sağ boşluğunu kaldır */
+  margin-bottom: 16px; /* Logo ile paragraf arası boşluk */
 }
 
-.footer p {
+.footer .logo span {
+  color: var(--color-light-bg); /* Footer'daki Studio kısmı açık renk */
+}
+
+
+.footer-text {
   max-width: 264px;
   font-size: 16px;
   line-height: 1.5;
+  color: var(--color-light-bg); /* Footer metin rengi açık renk olmalı */
 }
 
-/* Yardımcı metin renkleri */
-.helper-text {
+/* Yardımcı metin renkleri - Genel tanımlar */
+/* .helper-text {
   color: var(--color-muted);
 }
 
 .success-message {
   color: var(--color-success);
+} */
+
+/* ÖDEV 3 aşağı kısımdan başlamaktadır. */
+
+.container {
+  max-width: 1158px; /* B8: Genişlik tam olarak bu */
+  margin: 0 auto; /* Ortalamak için */
+  padding: 0 15px; /* Kenarlardan biraz boşluk */
+}
+
+.section {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.header {
+  border-bottom: 1px solid var(--color-accent); /* B13: Başlık alt kenarlığı */
+  padding: 0; /* Header içinde .header-container zaten padding'e sahip */
+}
+
+.header-container {
+  /* B10: Header içeriğini düzenlemek için Flexbox */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Features Section (Gizli H2 başlığı) */
+.features-container {
+  display: flex; /* B10: Yatay hizalama */
+  gap: 24px; /* Elemanlar arası boşluk */
+}
+
+.feature-item {
+  flex-basis: calc((100% - 3 * 24px) / 4); /* B11: 4 eşit kolon */
+}
+
+.feature-item h3 {
+  margin-bottom: 8px; /* Başlık altı boşluk */
+}
+
+/* Figma'da feature item'ların üstünde gri bir kare var */
+.feature-icon-wrapper {
+  width: 264px; /* Figma'daki genişlik */
+  height: 112px;
+  background-color: var(--color-light-bg); /* Gri arka plan */
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px; /* Icon alanı ile başlık arası boşluk */
+}
+
+
+/* Team Section */
+.team-section {
+  background-color: var(--color-light-bg); /* Figma'ya göre arka plan rengi */
+}
+
+.team-list {
+  display: flex; /* B10: Yatay hizalama */
+  gap: 24px; /* Elemanlar arası boşluk */
+  justify-content: center; /* Ortalamak için */
+}
+
+.team-member-card {
+  background-color: var(--color-white);
+  border-radius: 0px 0px 4px 4px; /* Sadece alt köşeler yuvarlak */
+  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08), 0px 1px 1px 0px rgba(46, 47, 66, 0.16), 0px 1px 6px 0px rgba(46, 47, 66, 0.08); /* Figma'daki gölge */
+  flex-basis: calc((100% - 3 * 24px) / 4); /* B11: 4 eşit kolon */
+  text-align: center; /* İçindeki metinleri ortala */
+}
+
+.team-member-card img {
+  margin-bottom: 32px; /* Resim ile yazı arası boşluk */
+}
+
+.team-member-card .member-info {
+  padding: 32px 0; /* İçerik etrafındaki boşluk */
+}
+
+.team-member-card h3 {
+  margin-bottom: 8px; /* İsim ile pozisyon arası boşluk */
+}
+
+/* Portfolio Section */
+.portfolio-list {
+  display: flex; /* B10: Yatay hizalama */
+  flex-wrap: wrap; /* Yeni satıra geçmesini sağlar */
+  column-gap: 24px; /* Sütunlar arası boşluk */
+  row-gap: 48px;/* Satırlar arası boşluk */
+}
+
+.portfolio-item {
+  flex-basis: calc((100% - 2 * 24px) / 3); /* B11: 3 eşit kolon */
+  border: 1px solid var(--color-accent); /* B16: Tüm kartın kenarlığı */
+  border-bottom: 1px solid var(--color-accent); /* B16 eski kuralına göre */
+  transition: box-shadow 0.3s ease; /* Hover efekti için */
+}
+
+.portfolio-item:hover {
+  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08), 0px 1px 1px 0px rgba(46, 47, 66, 0.16), 0px 1px 6px 0px rgba(46, 47, 66, 0.08);
+}
+
+.portfolio-item .item-info {
+  padding: 32px 16px; /* İçerik etrafındaki boşluk */
+  text-align: left; /* Metinleri sola hizala */
+}
+
+.portfolio-item h3 {
+  margin-bottom: 8px; /* Başlık ile paragraf arası boşluk */
 }
